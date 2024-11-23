@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='bg-black flex justify-between px-10 gap-5 py-10'>
-            <div className='flex-1'>
+        <div className='bg-black lg:flex lg:justify-between py-10 px-10 gap-5 '>
+            <div className='lg:flex-1'>
                 <h1 className='text-4xl'>We<span className='text-[#7436F1]'>5</span>ive</h1>
                 <p>Saepe quo suscipit vitae quia. Repudiandae nobis quis. Laboriosam unde quae qui quasi mollitia tenetur. Dicta explicabo est consectetur maxime quos fugit velit assumenda est. </p>
             </div>

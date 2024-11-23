@@ -1,9 +1,10 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 
 const HomePage = () => {
     return (
         <div className='text-black h-screen'>
-            This is the Home Page
+           <Banner/>
         </div>
     );
 }

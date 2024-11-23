@@ -2,6 +2,7 @@
 import { CiSearch } from "react-icons/ci";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { CgProfile } from "react-icons/cg";
+import Link from "next/link";
 
 
 const Navbar = () => {
@@ -15,7 +16,7 @@ const Navbar = () => {
                 {/* NavLink */}
                 <div>
                     <ul className="flex gap-5">
-                        <li>Home</li>
+                        <li><Link href={'/'}>Home</Link></li>
                         <li>Shop</li>
                         <li>Deals</li>
                         <li>What's new</li>
