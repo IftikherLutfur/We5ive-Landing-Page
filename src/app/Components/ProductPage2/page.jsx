@@ -1,10 +1,8 @@
 "use client"
-import axios from 'axios';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const ProductPage = () => {
-
+const ProductPage2 = () => {
     const [product , setProduct] = useState([])
 
     useEffect(()=>{
@@ -30,7 +28,7 @@ const ProductPage = () => {
         <div>
             <div className='grid lg:grid-cols-4 md:grid-cols-2 lg:gap-5 sm:grid-cols-1'>
              {
-                product.slice(0,4).map(products=><div className='text-black my-5 mx-5' key={products._id}>
+                product.slice(4,10).map(products=><div className='text-black my-5 mx-5' key={products._id}>
                     <img className='border-2 h-[287px] w-[286px] rounded-md' src={products.images.img1}
                     />
                     <div className='flex lg:justify-between gap-20 lg:gap-0 my-4 px-2'>
@@ -45,4 +43,5 @@ const ProductPage = () => {
     );
 };
 
-export default ProductPage;
+
+export default ProductPage2;
