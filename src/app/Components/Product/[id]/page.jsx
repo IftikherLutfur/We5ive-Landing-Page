@@ -5,16 +5,39 @@ import { IoBag } from "react-icons/io5";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import axios from 'axios';
+import { AiOutlineLike } from "react-icons/ai";
+
 
 
 
 const ProductDetails = ({params}) => {
     const [product, setProduct] = useState([])
     const [quantity, setQuantity] = useState(1);
-    const [selectOption , setSelectOption] = useState("Select")
+    const [selectOption , setSelectOption] = useState("Newest")
     const [isOpen, setIsOpen] = useState(false)
+    const [reviews , setReviews] = useState([])
 
-    const options = ["Hoodie", "Shoe", "Jacket"]
+    useEffect(()=>{
+        const fetchReviews = async()=>{
+            try {
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_WEB_URL}/api/review`)
+            if(res.status === 200){
+                console.log(res.data);
+              setReviews(res.data.reviews)
+            }
+            else{
+                console.error("Error");
+                
+            }
+            } catch (error) {
+                console.error("Something went wrong", error)
+            }
+        }
+        fetchReviews()
+    },[])
+
+    const options = [ "Newest", "Oldest", "All"]
 
     const toggleDropDown = (options) =>{
         setSelectOption(options)
@@ -135,11 +158,65 @@ const ProductDetails = ({params}) => {
           </ul>
         </div>
       )}
+      
+    <div className='lg:flex justify-evenly gap-28 mx-10'>
+        {/* user rating */}
+    <div className='w-full'>
+     {reviews.slice(0,2).map(review=><div className='border-b-2 border-dashed my-2' key={review._id}>
+        <div className='flex gap-5'>
+        <span className='flex gap-2'><img className='rounded-full w-10 h-10' src={review.image} alt="" />
+        <span className='font-semibold text-black'>{review.name}</span>
+        </span>
+        <span className='text-gray-500'>{review.daysAgo} days</span>
+        </div>
+        <h1 className='pl-12'>{review.rating}</h1>
+        <p className='pl-12 pb-5'>{review.comment}</p>
+        <p className='pb-5 pl-12 flex items-center gap-1'><button><AiOutlineLike/></button>{review.likes}</p>
+     </div>)}
+      </div>
+
+      {/* showing the rating */}
+      <div className='w-1/2 px-20 border-2'>
+        <div className='flex gap-3'>
+        <p className='font-semibold'>Product Preview</p>
+        <p className='text-[#7E53D4] font-semibold'>112 reviews</p>
+        </div>
+      <div className="flex flex-col  py-6 space-y-3">
+			<div className="flex space-x-3">
+				<button type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+					</svg>
+				</button>
+				<button type="button" title="Rate 2 stars" aria-label="Rate 2 stars">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+					</svg>
+				</button>
+				<button type="button" title="Rate 3 stars" aria-label="Rate 3 stars">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+					</svg>
+				</button>
+				<button type="button" title="Rate 4 stars" aria-label="Rate 4 stars">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+					</svg>
+				</button>
+				<button type="button" title="Rate 5 stars" aria-label="Rate 5 stars">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-gray-400">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+      </div>
+
+    </div>
+
+
         </div>
 
-        <div>
-            Rating View 
-        </div>
       </div>
     </TabPanel>
     <TabPanel></TabPanel>

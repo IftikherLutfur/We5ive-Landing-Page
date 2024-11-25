@@ -2,9 +2,9 @@ import { connectDb } from "@/lib/connectDb"
 import { NextResponse } from "next/server";
 
 export const GET = async () =>{
-    const db = connectDb();
-    const reviewsCollection = db.collection("reviews")
     try {
+    const db = await connectDb();
+    const reviewsCollection = db.collection("reviews")
         const reviews = await reviewsCollection.find().toArray()
         return NextResponse.json({message:"Get the data" ,reviews},{status:200})
     } catch (error) {
