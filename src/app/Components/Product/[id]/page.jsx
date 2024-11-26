@@ -109,7 +109,7 @@ const ProductDetails = ({ params }) => {
           )}
         </div>
         <div className='w-full flex-1'>
-          <p>{product.newArrival === "yes" ? <p className='px-12 py-2 w-36 bg-purple-900 text-white rounded-md'>New Arrival</p> : ""}</p>
+          <p>{product.newArrival === true ? <p className='px-12 py-2 w-36 bg-purple-900 text-white rounded-md'>New Arrival</p> : ""}</p>
           <h1 className='text-3xl text-black my-5'>{product.productName}</h1>
           <p>{product.rating}</p>
           <p className='text-black text-2xl my-3'>BDT{product.price}</p>
@@ -167,7 +167,7 @@ const ProductDetails = ({ params }) => {
           </TabList>
 
           <TabPanel>
-            <h2>Any content 1</h2>
+            <h2></h2>
           </TabPanel>
           <TabPanel>
             <div className='mx-5 my-10 text-black'>
