@@ -9,6 +9,10 @@ import axios from 'axios';
 import { AiOutlineLike } from "react-icons/ai";
 import Link from 'next/link';
 import Image from 'next/image';
+import { Component } from 'react';
+import ReactDOM from 'react-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 
 
@@ -97,13 +101,40 @@ const ProductDetails = ({ params }) => {
       <div className='lg:flex items-center gap-10 mx-5 my-3 rounded-sm py-3 px-20 text-black bg-[#CECECE]'>
         <div className='flex-1'>
           {product.images?.img1 ? (
+            <div> <Carousel>
+            <div>
             <Image
-              src={product.images.img1}
-              alt="Product"
-              width={500} // Set your desired width
-              height={500} // Set your desired height
-              priority // Optional: for loading priority
-            />
+             src={product.images.img1}
+             alt="Product"
+             width={500} // Set your desired width
+             height={500} // Set your desired height
+             priority // Optional: for loading priority
+           />
+        
+            </div>
+            <div>
+            <Image
+             src={product.images.img2}
+             alt="Product"
+             width={500} // Set your desired width
+             height={500} // Set your desired height
+             priority // Optional: for loading priority
+           />
+            
+            </div>
+            <div>
+            <Image
+             src={product.images.img3}
+             alt="Product"
+             width={500} // Set your desired width
+             height={500} // Set your desired height
+             priority // Optional: for loading priority
+           />
+                
+            </div>
+        </Carousel>
+           
+           </div>
           ) : (
             <p className='text-black'>Image not available</p>
           )}
