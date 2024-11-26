@@ -1,5 +1,6 @@
 "use client"
 import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -31,8 +32,13 @@ const ProductPage2 = () => {
             {
                     product.slice(4, 8).map(products => <div className='text-black my-5 mx-5 bg-white' key={products._id}>
                         <p className="bg-[#7E53D4] rounded-b-3xl px-1 py-1 absolute ml-52 w-10 text-white text-center mt-2">Up to 40%</p>
-                        <img className=' h-[287px] p-2 shadow-lg w-[286px] rounded-md' src={products.images.img1}
-                        />
+                        <Image
+  className="h-[287px] p-2 shadow-lg w-[286px] rounded-md"
+  src={products.images.img1}
+  alt="Product Image"
+  width={286}  // Width as per your requirement
+  height={287} // Height as per your requirement
+/>
                         <div className='flex lg:justify-between gap-20 lg:gap-0 mt-4 mb-2 px-2'>
                             <h1 className=''>{products.productName}</h1>
                             <h1 className='font-semibold text-black'>BDT {products.price}</h1>

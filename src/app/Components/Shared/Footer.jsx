@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         <div>
-            <ul className='lg:flex justify-evenly gap-52 my-4 space-y-4 '>
+            <ul className='lg:flex justify-evenly gap-52 my-4 items-center space-y-4 '>
                 <li>Contact Us <br />
                 support@we5ive.com
                 </li>
