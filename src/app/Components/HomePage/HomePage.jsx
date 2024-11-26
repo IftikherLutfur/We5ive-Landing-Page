@@ -6,7 +6,7 @@ import ProductPage2 from '../ProductPage2/page';
 
 const HomePage = () => {
     return (
-        <div className='text-black'>
+        <div className='text-black bg-[#F4F8FF]'>
            <Banner/>
            <ProductPage/>
            <Banner2/>

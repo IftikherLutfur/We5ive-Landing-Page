@@ -9,10 +9,10 @@ import { TbExchange } from "react-icons/tb";
 const Banner = () => {
     return (
         <div>
-            <div className="relative w-full h-[400px] bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/NSWGNNB/pexels-photo-1127000.webp')" }}>
+            <div className="relative  h-[400px] bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co.com/NSWGNNB/pexels-photo-1127000.webp')" }}>
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
                     <div className="text-center text-white px-4">
-                        <h1 className="text-4xl font-bold mb-4">Elevate Your Everyday Style</h1>
+                        <h1 className="text-3xl font-bold mb-4">Elevate Your Everyday Style</h1>
                         <p className="text-lg mb-6">Discover the Latest Trends in Sustainable Fashion</p>
                         <button className="px-6 py-3 text-xl bg-[#7436F1] text-white rounded-md hover:bg-[#5c2cb3] transition duration-300">
                             Shop Now
