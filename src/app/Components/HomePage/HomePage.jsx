@@ -9,7 +9,7 @@ const HomePage = () => {
         <div className='text-black bg-[#F4F8FF]'>
            <Banner/>
            <ProductPage/>
-           <Banner2/>
+           <Banner2/> 
            <ProductPage2/>
         </div>
     );

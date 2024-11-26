@@ -53,7 +53,7 @@ const ProductPage = () => {
                             />
                         </div>
                         <div className='flex lg:justify-between gap-20 lg:gap-0 my-4 px-2'>
-                            <h1 className=''>{products.productName}</h1>
+                            <h1 className='text-black'>{products.productName}</h1>
                             <h1 className='font-semibold text-black'>BDT {products.price}</h1>
                         </div>
                         <Link href={`/Components/Product/${products._id}`}><button className='border-2 border-[#7E53D4] w-[260px] text-[#7E53D4]'>Add to Cart</button></Link>
