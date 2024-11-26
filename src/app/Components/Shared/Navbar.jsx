@@ -47,7 +47,7 @@ import Image from "next/image";
         <li><Link href={'/'}>Home</Link></li>
         <li>Shop</li>
         <li>Deals</li>
-        <li>What's new</li>
+        <li>What new</li>
       </ul>
     </div>
 
@@ -89,7 +89,7 @@ import Image from "next/image";
         <li><Link href={'/'}>Home</Link></li>
         <li>Shop</li>
         <li>Deals</li>
-        <li>What's new</li>
+        <li>What new</li>
       </ul>
     </div>
   )}

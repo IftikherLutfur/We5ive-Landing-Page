@@ -91,7 +91,7 @@ const ProductDetails = ({ params }) => {
       }
     }
     details()
-  }, [])
+  }, )
   return (
     <div>
       <div className='lg:flex items-center gap-10 mx-5 my-3 rounded-sm py-3 px-20 text-black bg-[#CECECE]'>
